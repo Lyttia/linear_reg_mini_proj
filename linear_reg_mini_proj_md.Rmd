@@ -57,7 +57,7 @@ summary(en.met.mod) # show regression coefficients table
 
 **Interpretation:**
 
-*independent variable (metro) coefficient: -2.2871 (indicates a slight negative relationship between the percentage of residents living in metropolitan areas (metro) and energy consumption per capita.), metro significance: 0.05 (slightly significant)* 
+*Independent variable (metro) coefficient: -2.2871 (indicates a slight negative relationship between the percentage of residents living in metropolitan areas (metro) and energy consumption per capita.), metro significance: 0.05 (slightly significant).* 
 
 *Adjusted R-squared: 0.097, not very high, verifying the scatterplot we saw earlier. I wouldn't use this model with metro as the only indicator for predicting energy consuption per capita. It is not very accurate at this point, but adding more indicators could help improve the prediction accuracy.*
 
@@ -69,7 +69,7 @@ plot(en.met.mod)
 
 **Select one or more additional predictors to add to your model and repeat steps 1-3. Is this model significantly better than the model with /metro/ as the only predictor?**
 
-***I chose to add "pop" and "toxic" as additional predictors to my model."Pop" being a way to measure the consumers of energy, and "toxic", being a measure of the toxic waste product produced by energy consumption.***
+**I chose to add "pop" and "toxic" as additional predictors to my model."Pop" being a way to measure the consumers of energy, and "toxic", being a measure of the toxic waste product produced by energy consumption.**
 
 ```{r}
 states.info <- data.frame(attributes(states.data)[c("names", "var.labels")])
@@ -87,7 +87,7 @@ anova(en.met.mod, mod.en.met.pop.toxic)
 
 *Independent variables "pop" and "toxic" are positively associated with energy consumption per capita, with toxic being a stronger linear association.*
 
-*"Toxic" seems to be the most significant variable followed by "metro", which has lost significance points since the last model. It seems that the model containing the "pop" and "toxic" variables is significantly better than the model with "metro" as the only predictor. I would replace "pop" with another variable to test.* 
+*"Toxic" seems to be the most significant variable followed by "metro", which has lost significance points since the last model. It seems that the model containing the "pop" and "toxic" variables is significantly better than the model with "metro" as the only predictor. I would replace "pop" with another variable to test and see how it interacts with "metro".* 
 
 *R-squared: 0.3278 is improving, but still a bit low. I would like to see if I could improve this with the data we have.*
 
